@@ -102,7 +102,7 @@ public class GetIpAddressInformationFragment extends Fragment {
                 this.ipAddressInformationFragment.update(result.ipAddress);
                 this.ipAddressInformationFragmentContainer.setVisibility(View.VISIBLE);
             } else {
-                this.errorText.setText("Ошибка при получении данных от сервиса IPInfo. Пожалуйста, проверьте интернет-подключение.");
+                this.errorText.setText(result.errorMessage);
                 this.errorText.setVisibility(View.VISIBLE);
             }
 
