@@ -5,10 +5,9 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -23,19 +22,25 @@
             android:layout_height="wrap_content"
             android:visibility="gone" />
 
-        <Button
-            android:id="@+id/refreshButton"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Обновить" />
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/getMyIpAddressErrorText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Error Text"
-            android:textColor="#F44336"
-            android:visibility="gone" />
+            <TextView
+                android:id="@+id/getMyIpAddressErrorText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Error Text"
+                android:textColor="#F44336"
+                android:visibility="gone" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/refreshButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Обновить" />
+        </LinearLayout>
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
