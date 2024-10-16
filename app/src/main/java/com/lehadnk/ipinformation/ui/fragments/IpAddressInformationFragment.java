@@ -45,7 +45,13 @@ public class IpAddressInformationFragment extends Fragment {
     public void update(IpAddress ipAddress)
     {
         this.ipAddress.setText(ipAddress.ip.getHostAddress());
-        this.flagImage.setImageDrawable(FlagKit.INSTANCE.getDrawable(this.getContext(), ipAddress.countryIsoCode.toLowerCase()));
+        if (ipAddress.countryIsoCode != null) {
+            this.flagImage.setImageDrawable(FlagKit.INSTANCE.getDrawable(this.getContext(), ipAddress.countryIsoCode.toLowerCase()));
+            this.flagImage.setVisibility(View.VISIBLE);
+        } else {
+            this.flagImage.setVisibility(View.GONE);
+        }
+
         this.carrierName.setText(ipAddress.carrierName);
     }
 }
