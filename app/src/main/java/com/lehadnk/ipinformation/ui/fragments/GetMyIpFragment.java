@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 import com.lehadnk.ipinformation.R;
 import com.lehadnk.ipinformation.domain.GetIpAddressInformationUseCase;
 
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
@@ -56,11 +55,11 @@ public class GetMyIpFragment extends Fragment {
                     this.errorText.setText("Ошибка при получении данных от сервиса IPInfo. Пожалуйста, проверьте интернет-подключение.");
                     this.errorText.setVisibility(View.VISIBLE);
                 }
-            } catch (ExecutionException | InterruptedException e) {
-                this.errorText.setText("Неизвестная ошибка. Пожалуйста, попробуйте еще раз.");
-                this.errorText.setVisibility(View.VISIBLE);
             } catch (TimeoutException e) {
                 this.errorText.setText("Ошибка при получении данных от сервиса IPInfo. Пожалуйста, проверьте интернет-подключение.");
+                this.errorText.setVisibility(View.VISIBLE);
+            } catch (Exception e) {
+                this.errorText.setText("Неизвестная ошибка. Пожалуйста, попробуйте еще раз.");
                 this.errorText.setVisibility(View.VISIBLE);
             } finally {
                 this.unblockUi();

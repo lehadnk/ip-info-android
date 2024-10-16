@@ -20,7 +20,7 @@ public class GetIpAddressInformationResult {
     {
         var result = new GetIpAddressInformationResult();
         result.errorMessage = errorMessage;
-        result.isSuccess = true;
+        result.isSuccess = false;
 
         return result;
     }

@@ -69,14 +69,14 @@ public class GetIpAddressInformationFragment extends Fragment {
                     this.errorText.setText("Ошибка при получении данных от сервиса IPInfo. Пожалуйста, проверьте интернет-подключение.");
                     this.errorText.setVisibility(View.VISIBLE);
                 }
-            } catch (ExecutionException | InterruptedException e) {
-                this.errorText.setText("Неизвестная ошибка. Пожалуйста, попробуйте еще раз.");
-                this.errorText.setVisibility(View.VISIBLE);
             } catch (UnknownHostException e) {
                 this.errorText.setText("Введенный IP адрес не является корректным. Пожалуйста, введите четыре числа в диапазоне 0 - 255, разделенные точками.");
                 this.errorText.setVisibility(View.VISIBLE);
             } catch (TimeoutException e) {
                 this.errorText.setText("Ошибка при получении данных от сервиса IPInfo. Пожалуйста, проверьте интернет-подключение.");
+                this.errorText.setVisibility(View.VISIBLE);
+            } catch (Exception e) {
+                this.errorText.setText("Неизвестная ошибка. Пожалуйста, попробуйте еще раз.");
                 this.errorText.setVisibility(View.VISIBLE);
             } finally {
                 this.unblockUi();
