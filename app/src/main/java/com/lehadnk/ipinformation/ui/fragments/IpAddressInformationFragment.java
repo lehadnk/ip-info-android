@@ -18,26 +18,18 @@ public class IpAddressInformationFragment extends Fragment {
     private TextView ipAddress;
     private ImageView flagImage;
     private TextView carrierName;
+    private ViewGroup container;
+    private View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        var view = inflater.inflate(R.layout.fragment_ip_address_information, container, false);
+        this.container = container;
+
+        this.view = inflater.inflate(R.layout.fragment_ip_address_information, container, false);
         this.ipAddress = view.findViewById(R.id.ipAddress);
         this.flagImage = view.findViewById(R.id.flagImage);
         this.carrierName = view.findViewById(R.id.carrierName);
-
-        var viewTreeObserver = view.getViewTreeObserver();
-        viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                int fragmentWidth = view.getWidth();
-                int maxWidth = (int) (fragmentWidth * 0.7);
-                carrierName.setMaxWidth(maxWidth);
-            }
-        });
-
 
         return view;
     }
@@ -52,6 +44,25 @@ public class IpAddressInformationFragment extends Fragment {
             this.flagImage.setVisibility(View.GONE);
         }
 
-        this.carrierName.setText(ipAddress.carrierName);
+        this.carrierName.setText(ipAddress.carrierName != null ? ipAddress.carrierName : "Нет информации о провайдере");
+        this.container.setVisibility(View.VISIBLE);
+        this.resizeTextContainer();
+    }
+
+    /**
+     * There's no way to do it during onCreateView since the element is hidden yet
+     */
+    private void resizeTextContainer()
+    {
+        var viewTreeObserver = view.getViewTreeObserver();
+        viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                int fragmentWidth = view.getWidth();
+                int maxWidth = (int) (fragmentWidth * 0.7);
+                carrierName.setMaxWidth(maxWidth);
+            }
+        });
     }
 }
