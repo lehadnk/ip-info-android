@@ -1,12 +1,10 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
+    id 'com.android.application' version '8.4.2'
 }
 
 android {
     namespace 'com.lehadnk.ipinformation'
-    compileSdk 34
+    compileSdk 34 // Gradle 8.9
 
     defaultConfig {
         applicationId "com.lehadnk.ipinformation"
@@ -28,9 +26,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = '11'
-    }
     buildFeatures {
         compose true
     }
@@ -43,7 +38,6 @@ repositories {
 }
 
 dependencies {
-
     implementation libs.androidx.core.ktx
     implementation libs.androidx.lifecycle.runtime.ktx
     implementation libs.androidx.activity.compose
