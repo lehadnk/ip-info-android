@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Ip Information</string>
+    <string name="ip_address">IP Адрес</string>
+    <string name="get">Получить</string>
+    <string name="refresh">Обновить</string>
+    <string name="default_ip">0.0.0.0</string>
+    <string name="my_ip">Мой IP</string>
+    <string name="other_ip">Другой IP</string>
 </resources>

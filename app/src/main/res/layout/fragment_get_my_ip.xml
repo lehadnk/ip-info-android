@@ -32,7 +32,6 @@
                 android:id="@+id/getMyIpAddressErrorText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Error Text"
                 android:textColor="#F44336"
                 android:visibility="gone" />
 
@@ -40,7 +39,7 @@
                 android:id="@+id/refreshButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Обновить" />
+                android:text="@string/refresh" />
         </LinearLayout>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

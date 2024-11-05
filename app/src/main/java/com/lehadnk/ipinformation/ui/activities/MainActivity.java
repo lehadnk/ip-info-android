@@ -29,10 +29,10 @@ public class MainActivity extends AppCompatActivity
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
             switch (position) {
                 case 0:
-                    tab.setText("Мой IP");
+                    tab.setText(getString(R.string.my_ip));
                     break;
                 case  1:
-                    tab.setText("Другой IP");
+                    tab.setText(getString(R.string.other_ip));
                     break;
             }
         }).attach();

@@ -16,7 +16,7 @@
             android:id="@+id/ipAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="0.0.0.0"
+            android:text="@string/default_ip"
             android:textAlignment="center"
             android:textSize="40sp" />
 
@@ -41,7 +41,7 @@
                 android:layout_marginStart="4dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="Vodafone" />
+                android:text="" />
 
         </LinearLayout>
     </LinearLayout>
