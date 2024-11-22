@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.lehadnk.ipinformation.ui.fragments.GetIpAddressInformationFragment;
-import com.lehadnk.ipinformation.ui.fragments.GetMyIpFragment;
+import com.lehadnk.ipinformation.ui.fragments.EnteredIpAddressInformationFragment;
+import com.lehadnk.ipinformation.ui.fragments.MyIpAddressFragment;
 
 public class TabsPagesAdapter extends FragmentStateAdapter {
     public TabsPagesAdapter(@NonNull FragmentActivity fragmentActivity) {
@@ -18,11 +18,11 @@ public class TabsPagesAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case 0:
-                return new GetMyIpFragment();
+                return new MyIpAddressFragment();
             case 1:
-                return new GetIpAddressInformationFragment();
+                return new EnteredIpAddressInformationFragment();
             default:
-                return new GetMyIpFragment();
+                return new MyIpAddressFragment();
         }
     }
 

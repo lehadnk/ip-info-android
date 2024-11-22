@@ -14,7 +14,7 @@ import com.lehadnk.ipinformation.R;
 import com.lehadnk.ipinformation.data.dto.IpAddress;
 import com.murgupluoglu.flagkit.FlagKit;
 
-public class IpAddressInformationFragment extends Fragment {
+public class IpAddressDetailsBoxFragment extends Fragment {
     private TextView ipAddress;
     private ImageView flagImage;
     private TextView carrierName;

@@ -17,7 +17,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/ipAddressFragmentContainer"
-            android:name="com.lehadnk.ipinformation.ui.fragments.IpAddressInformationFragment"
+            android:name="com.lehadnk.ipinformation.ui.fragments.IpAddressDetailsBoxFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone" />
