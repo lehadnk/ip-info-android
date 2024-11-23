@@ -30,7 +30,7 @@ public class MyIpAddressFragment extends Fragment {
     private FrameLayout ipAddressInformationFragmentContainer;
     private TextView errorText;
     private ProgressBar progressBar;
-    private GetIpAddressInformationUseCase getIpAddressInformationUseCase = new GetIpAddressInformationUseCase();
+    private GetIpAddressInformationUseCase getIpAddressInformationUseCase = new GetIpAddressInformationUseCase(getContext());
     private final Handler handler = new Handler(Looper.getMainLooper());
 
     @Override
@@ -64,9 +64,9 @@ public class MyIpAddressFragment extends Fragment {
             try {
                 futureResult = this.getIpAddressInformationUseCase.getIpAddressInformation(null).get(10, TimeUnit.SECONDS);
             } catch (ExecutionException | InterruptedException e) {
-                futureResult = GetIpAddressInformationResult.error("Неизвестная ошибка. Пожалуйста, попробуйте еще раз.");
+                futureResult = GetIpAddressInformationResult.error(getString(R.string.unknown_error));
             } catch (TimeoutException e) {
-                futureResult = GetIpAddressInformationResult.error("Ошибка при получении данных от сервиса IPInfo. Пожалуйста, проверьте интернет-подключение.");
+                futureResult = GetIpAddressInformationResult.error(getString(R.string.unable_to_reach_ipinfo));
             }
             this.processResult(futureResult);
         }).start();

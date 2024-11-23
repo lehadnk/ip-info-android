@@ -6,4 +6,9 @@
     <string name="default_ip">0.0.0.0</string>
     <string name="my_ip">Мой IP</string>
     <string name="other_ip">Другой IP</string>
+    <string name="no_provider_information">Нет информации о провайдере</string>
+    <string name="unable_to_reach_ipinfo">Не удалось загрузить данные с сервиса IPInfo. Проверьте подключение к интернету, после чего попробуйте еще раз</string>
+    <string name="incorrect_ip_address_format">Введенный IP адрес не является корректным. Пожалуйста, введите четыре числа в диапазоне 0 - 255, разделенные точками.</string>
+    <string name="unknown_error">Неизвестная ошибка. Пожалуйста, попробуйте еще раз.</string>
+
 </resources>

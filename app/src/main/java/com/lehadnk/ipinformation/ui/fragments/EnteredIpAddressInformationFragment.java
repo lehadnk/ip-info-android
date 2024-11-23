@@ -37,7 +37,7 @@ public class EnteredIpAddressInformationFragment extends Fragment {
     private ProgressBar progressBar;
 
     private final Handler handler = new Handler(Looper.getMainLooper());
-    private GetIpAddressInformationUseCase getIpAddressInformationUseCase = new GetIpAddressInformationUseCase();
+    private GetIpAddressInformationUseCase getIpAddressInformationUseCase = new GetIpAddressInformationUseCase(getContext());
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -76,7 +76,7 @@ public class EnteredIpAddressInformationFragment extends Fragment {
 
         var inputIp = this.ipAddressInput.getText().toString();
         if (!this.isIpv4Address(inputIp)) {
-            this.processResult(GetIpAddressInformationResult.error("Введенный IP адрес не является корректным. Пожалуйста, введите четыре числа в диапазоне 0 - 255, разделенные точками."));
+            this.processResult(GetIpAddressInformationResult.error(getString(R.string.incorrect_ip_address_format)));
             return;
         }
 
@@ -85,11 +85,11 @@ public class EnteredIpAddressInformationFragment extends Fragment {
             try {
                 futureResult = this.getIpAddressInformationUseCase.getIpAddressInformation(InetAddress.getByName(inputIp)).get(10, TimeUnit.SECONDS);
             } catch (ExecutionException | InterruptedException e) {
-                futureResult = GetIpAddressInformationResult.error("Неизвестная ошибка. Пожалуйста, попробуйте еще раз.");
+                futureResult = GetIpAddressInformationResult.error(getString(R.string.unknown_error));
             } catch (TimeoutException e) {
-                futureResult = GetIpAddressInformationResult.error("Ошибка при получении данных от сервиса IPInfo. Пожалуйста, проверьте интернет-подключение.");
+                futureResult = GetIpAddressInformationResult.error(getString(R.string.unable_to_reach_ipinfo));
             } catch (UnknownHostException e) {
-                futureResult = GetIpAddressInformationResult.error("Введенный IP адрес не является корректным. Пожалуйста, введите четыре числа в диапазоне 0 - 255, разделенные точками.");
+                futureResult = GetIpAddressInformationResult.error(getString(R.string.incorrect_ip_address_format));
             }
             this.processResult(futureResult);
         }).start();

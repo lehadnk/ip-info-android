@@ -44,7 +44,7 @@ public class IpAddressDetailsBoxFragment extends Fragment {
             this.flagImage.setVisibility(View.GONE);
         }
 
-        this.carrierName.setText(ipAddress.carrierName != null ? ipAddress.carrierName : "Нет информации о провайдере");
+        this.carrierName.setText(ipAddress.carrierName != null ? ipAddress.carrierName : getString(R.string.no_provider_information));
         this.container.setVisibility(View.VISIBLE);
         this.resizeTextContainer();
     }
